@@ -22,8 +22,12 @@ public class CD_Universe
 		action = input.nextInt();
 		System.out.println(); //Add line
 		
+		
+		
+		
 		//Giving an error message to an invalid input and making the user try again
-		while (!(action == 0 || action == 1 || action == 2 || action == 3 || action == 4)){ 
+		while (!(action == 0 || action == 1 || action == 2 || action == 3 || action == 4))
+		{ 
 			System.err.println("Invalid input"); //Telling the user that this is an invalid input
 			
 			//Telling the user to enter a valid input
@@ -36,6 +40,22 @@ public class CD_Universe
 			System.out.print("Enter the required number to perform an action: "); // This is going to prompt the user to enter a number
 			action = input.nextInt();
 		}
+		
+		
+		
+		
+		//If the user wants to add a new item
+		if (action == 0) 
+		{
+			System.out.println("\t\t New Iem"); //Title
+			NewItem obj = new NewItem(); //Creating an object for the new item
+			
+			obj.setItemType(); //Prompt user for details
+		}
+		
+		
+		
+		
 	}
 
 }
