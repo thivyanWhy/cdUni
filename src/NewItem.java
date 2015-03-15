@@ -2,10 +2,15 @@ import java.util.Scanner;
 
 public class NewItem 
 {	
-	private Scanner input = new Scanner (System.in);
-	private String itemType;
+	private Scanner input = new Scanner (System.in); //For single letter inputs
+	private Scanner input2 = new Scanner (System.in); //For multiple word inputs
 	
-	public void setItemType() //This method prompts the user with what to input
+	private String itemType; // Item type identifier
+	private String title; //Title of the new item
+	private String artist; //Artist of the new item
+	private String itemNumber; // Number for the new item - This is a string because characters can be present in the number as well
+	
+	public void setItemType() //This method prompts the user with what to input (Music video, Album, Podcast)
 	{
 		//Giving the user an option to enter an item type
 		System.out.println("\tItem type: ");
@@ -53,6 +58,51 @@ public class NewItem
 
 	public void setTitle() //Prompts the user for the title
 	{
-		
+		System.out.print("Title: "); //User inputs the title of the new item
+		title = input2.nextLine();
+		/*
+		 * Enter the title to an appropriate array
+		 */
+	}
+	
+	public void setArtist() //Prompts the user to set the name of the artist 
+	{
+		System.out.print("Artist: ");
+		artist = input2.nextLine();
+		/*
+		 * Enter Artist to an appropriate array
+		 */
+	}
+
+	public void setItemNumber() //Prompts the user to set an item number to identify it
+	{
+		System.out.print("Item number: ");
+		itemNumber = input.next();
+		/*
+		 * Enter item number to an appropriate array
+		 * Make sure that there is no other item with the same number
+		 */
+	}
+
+	public void showNewItemDetails() //Giving the summary of the new item after it has been created
+	{
+		//Telling the user that a new item has been created and showing item details
+		System.out.println(); //Add space
+		System.out.println("New item has been created");
+		System.out.print("\t Item type: ");
+		//Showing the item type
+			if (itemType.equalsIgnoreCase("A"))
+			{
+				System.out.println("Music Video");
+			}else if (itemType.equalsIgnoreCase("B"))
+			{
+				System.out.println("Album");
+			}else if (itemType.equalsIgnoreCase("C"))
+			{
+				System.out.println("Podcast");
+			}
+			System.out.println("\t Title: " + title);
+			System.out.println("\t Artist: " + artist);
+			System.out.println("\t itemNumber: " + itemNumber);
 	}
 }
