@@ -5,6 +5,7 @@ public class FirstClass {
 		System.out.println("No you suck");
 		System.out.println("Please God make this work");
 		System.out.println("Please let us have a shit together!!");
+		System.out.println("YES! God exists! Suck it, Gugsi!");
 	}
 
 }
