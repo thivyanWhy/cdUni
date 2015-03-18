@@ -9,7 +9,11 @@ public class NewItem
 	private String title; //Title of the new item
 	private String artist; //Artist of the new item
 	private String itemNumber; // Number for the new item - This is a string because characters can be present in the number as well
-	
+	public String [][] itemTypeArray = {{" "}}; //Storing the item type.
+	public String [][] titleArray = {{" "}}; //Storing the title.
+	public String [][] artistArray = {{" "}}; //Storing the artist.
+	public String [][] itemNumberArray = {{" "}}; //Storing the item number.
+	//Sorry for the lack of comments, I will do them tomorrow. YOU KNOW I LOVE YOU SAVVY BABES
 	public void setItemType() //This method prompts the user with what to input (Music video, Album, Podcast)
 	{
 		//Giving the user an option to enter an item type
@@ -39,20 +43,41 @@ public class NewItem
 		
 		//When the user enters a correct input
 		if(itemType.equalsIgnoreCase("A"))
-		{
-			/*
-			 * Enter code with arrays here
-			 */
+		{	
+			for (int i = 0; i < itemTypeArray.length; i++ )
+			{
+				
+				if (itemTypeArray[i][0].equals(null))
+				{
+					itemTypeArray[i][0] = "Music Video";
+					break;
+				}
+				
+				
+			}
 		}else if (itemType.equalsIgnoreCase("B"))
 		{
-			/*
-			 * Enter code with arrays here
-			 */
+			for (int i = 0; i < itemTypeArray.length; i++ )
+			{
+				
+				if (itemTypeArray[i][0].equals(null))
+				{
+					itemTypeArray[i][0] = "Album";
+					break;
+				}
+			}
+			
 		}else if (itemType.equalsIgnoreCase("C"))
 		{
-			/*
-			 * Enter code with arrays here
-			 */
+			for (int i = 0; i < itemTypeArray.length; i++ )
+			{
+				
+				if (itemTypeArray[i][0].equals(null))
+				{
+					itemTypeArray[i][0] = "Podcast";
+					break;
+				}
+			}
 		}
 	}
 
@@ -60,28 +85,45 @@ public class NewItem
 	{
 		System.out.print("Title: "); //User inputs the title of the new item
 		title = input2.nextLine();
-		/*
-		 * Enter the title to an appropriate array
-		 */
+		for (int i = 0; i < titleArray.length; i++ )
+		{
+			
+			if (titleArray[i][0].equals(null))
+			{
+				titleArray[i][0] = input2.nextLine();
+				break;
+			}
+		}
 	}
 	
 	public void setArtist() //Prompts the user to set the name of the artist 
 	{
 		System.out.print("Artist: ");
 		artist = input2.nextLine();
-		/*
-		 * Enter Artist to an appropriate array
-		 */
+		for (int i = 0; i < artistArray.length; i++ )
+		{
+			
+			if (artistArray[i][0].equals(null))
+			{
+				artistArray[i][0] = input2.nextLine();
+				break;
+			}
+		}
 	}
 
 	public void setItemNumber() //Prompts the user to set an item number to identify it
 	{
 		System.out.print("Item number: ");
 		itemNumber = input.next();
-		/*
-		 * Enter item number to an appropriate array
-		 * Make sure that there is no other item with the same number
-		 */
+		for (int i = 0; i < itemNumberArray.length; i++ )
+		{
+			
+			if (itemNumberArray[i][0].equals(null))
+			{
+				itemNumberArray[i][0] = input.next();
+				break;
+			}
+		}
 	}
 
 	public void showNewItemDetails() //Giving the summary of the new item after it has been created
