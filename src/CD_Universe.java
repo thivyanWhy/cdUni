@@ -44,7 +44,7 @@ public class CD_Universe
 			obj.setItemNumber(0); //Prompts the user to set the item number
 			obj.showNewItemDetails(); //Giving a summary of the new item to the user
 			obj.confirmNewItem(); //Asks the user if he has entered the correct values and gives the option to edit them
-
+			obj.sortItemList();//Sorts the values in the multi dimensional array
 	}
 	
 	

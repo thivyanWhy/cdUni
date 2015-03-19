@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class NewItem 
 {	
@@ -9,8 +10,13 @@ public class NewItem
 	private String title; //Title of the new item
 	private String artist; //Artist of the new item
 	private String itemNumber; // Number for the new item - This is a string because characters can be present in the number as well
-	public String [][] itemArray = new String [100][4]; //Storing the item type.
-	public String test;
+	
+	public static String [][] itemArray = new String [100][4]; //Storing the item type.
+		 /*Column 1: Item type
+		 * Column 2: Title
+		 * Column 3: Artist
+		 * Column 4: Item number
+		 */
 	
 	//Sorry for the lack of comments.
 	public void setItemType(int correction) //This method prompts the user with what to input (Music video, Album, Podcast)
@@ -178,6 +184,42 @@ public class NewItem
 		}
 	}
 
+	public void sortItemList() //After the item is created, it is sorted in alphabetical order
+	{
+		String []titles = new String[100];
+		String [][] itemArraySORTED = new String [100][4];
+		
+		//Goes through all the titles in the "itemArray" multi dimensional array and assign them to their respective values in the "titles" array
+		for (int i = 0; i<itemArray.length; i++)
+		{
+			titles[i] = itemArray[i][1];
+		}
+		
+		Arrays.sort(titles); //Sorts the "titles" array in alphabetical order
+		
+		for (int i = 0; i<titles.length; i++) //loop A
+		{
+			for (int x = 0; x<itemArray.length; x++) //loop B
+			{
+				if(titles[i].equals(itemArray[x][1])) //loop C
+				{
+					for(int y = 0; y < 4; y++)
+					{
+						itemArraySORTED[i][y] = itemArray[x][y];
+					}
+				}
+			}
+		}
+		
+		/*EXPLAINATION FOR THE CODE ABOVE
+		 *The "titles" array is sorted in alphabetical order
+		 *in loop B, it goes through each value of the "titles" array (through loop A) and checks if it is equal to some value in the title column of "itemArray"
+		 *When it does become equal, all of the values in that row is assigned to the values in "itemArraySORTED" array in loop C
+		 */
+		
+		itemArray = itemArraySORTED; //Now the MDA "itemArray" is in alphabetical order
+	}
+	
 /*CORRECTION ARGUMENT EXPLAINED
  * In the addNewItemActions() method in the CD_Universe class, the given value for correction is 0
  * This is because when looping through the multi dimensional array in the required column and a free space is found (null), the new item must be added to that free space
