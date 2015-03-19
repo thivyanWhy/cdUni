@@ -112,7 +112,7 @@ public class NewItem
 	public void setItemNumber() //Prompts the user to set an item number to identify it
 	{
 		System.out.print("Item number: ");
-		itemNumber = input.nextLine();
+		itemNumber = input.next();
 		for (int i = 0; i < itemArray.length; i++ )
 		{
 			
