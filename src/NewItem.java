@@ -11,6 +11,7 @@ public class NewItem
 	private String itemNumber; // Number for the new item - This is a string because characters can be present in the number as well
 	public String [][] itemArray = new String [100][4]; //Storing the item type.
 	
+
 	public void setItemType() //This method prompts the user with what to input (Music video, Album, Podcast)
 	{
 		//Giving the user an option to enter an item type
@@ -87,7 +88,7 @@ public class NewItem
 			
 			if (itemArray[i][1] == null)
 			{
-				itemArray[i][1] = input2.nextLine();
+				itemArray[i][1] = title;
 				break;
 			}
 		}
@@ -102,7 +103,7 @@ public class NewItem
 			
 			if (itemArray[i][2] == null)
 			{
-				itemArray[i][2] = input2.nextLine();
+				itemArray[i][2] = artist;
 				break;
 			}
 		}
@@ -117,7 +118,7 @@ public class NewItem
 			
 			if (itemArray[i][3] == null)
 			{
-				itemArray[i][3] = input.nextLine();
+				itemArray[i][3] = itemNumber;
 				break;
 			}
 		}

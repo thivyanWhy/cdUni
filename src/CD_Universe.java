@@ -78,7 +78,7 @@ public class CD_Universe
 		
 		switch(action)
 		{
-			case 1:addNewItemActions();
+			case 0:addNewItemActions();
 				primaryScreen(); //After a new item is added, the system should go back to the primary screen, without exiting the program
 				break;
 		}
