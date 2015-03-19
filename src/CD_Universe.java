@@ -6,7 +6,7 @@ public class CD_Universe
 	
 	private static int action;
 	
-	private static void primaryScreen() //This method shows the initial screen with the main set of options (add new item, edit items, delete items, rent items, overdue items)
+	private static void primaryScreen() //Method shows the initial screen with the main set of options (add new item, edit items, delete items, rent items, overdue items)
 	{
 		
 		do
