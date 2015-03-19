@@ -11,7 +11,7 @@ public class NewItem
 	private String itemNumber; // Number for the new item - This is a string because characters can be present in the number as well
 	public String [][] itemArray = new String [100][4]; //Storing the item type.
 	
-	//Sorry for the lack of comments, I will do them tomorrow. YOU KNOW I LOVE YOU SAVVY BABES
+	//Sorry for the lack of comments, I will do them tomorrow. YOU KNOW I LOVE YOU SAVVY
 	public void setItemType() //This method prompts the user with what to input (Music video, Album, Podcast)
 	{
 		//Giving the user an option to enter an item type
@@ -126,7 +126,7 @@ public class NewItem
 
 	public void showNewItemDetails() //Giving the summary of the new item after it has been created
 	{
-		//Telling the user that a new item has been created and showing item details 
+		//Telling the user that a new item has been created and showing item details
 		System.out.println(); //Add space
 		System.out.println("New item has been created");
 		System.out.print("\t Item type: ");
