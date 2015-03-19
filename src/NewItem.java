@@ -9,7 +9,7 @@ public class NewItem
 	private String title; //Title of the new item
 	private String artist; //Artist of the new item
 	private String itemNumber; // Number for the new item - This is a string because characters can be present in the number as well
-	public String [][] itemArray = {{" "}}; //Storing the item type.
+	public String [][] itemArray = new String [100][4]; //Storing the item type.
 	
 	
 	public void setItemType() //This method prompts the user with what to input (Music video, Album, Podcast)
