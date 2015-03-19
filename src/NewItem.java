@@ -146,4 +146,20 @@ public class NewItem
 			System.out.println("\t Artist: " + artist);
 			System.out.println("\t itemNumber: " + itemNumber);
 	}
+
+	public void confirmNewItem() //Asks the user if the vales entered is correct and then gives him the option to change it
+	{
+		String informationState = "O"; //This string changes to Y or N depends on whether the given displayed information is correct. It is initialized to "O" at the start
+		
+//		do
+//		{
+//			System.out.println("Is this information correct? (Y/N) ");
+//			informationState = input.next();
+			
+//			if (!(informationState.equalsIgnoreCase("N") || informationState.equalsIgnoreCase("Y")))
+//			{
+				
+//			}
+//		}while();
+	}
 }
