@@ -11,7 +11,6 @@ public class NewItem
 	private String itemNumber; // Number for the new item - This is a string because characters can be present in the number as well
 	public String [][] itemArray = new String [100][4]; //Storing the item type.
 	
-	//Sorry for the lack of comments, I will do them tomorrow. YOU KNOW I LOVE YOU SAVVY BABES
 	public void setItemType() //This method prompts the user with what to input (Music video, Album, Podcast)
 	{
 		//Giving the user an option to enter an item type
