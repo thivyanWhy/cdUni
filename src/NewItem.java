@@ -126,7 +126,7 @@ public class NewItem
 
 	public void showNewItemDetails() //Giving the summary of the new item after it has been created
 	{
-		//Telling the user that a new item has been created and showing item details
+		//Telling the user that a new item has been created and showing item details 
 		System.out.println(); //Add space
 		System.out.println("New item has been created");
 		System.out.print("\t Item type: ");
