@@ -11,7 +11,7 @@ public class NewItem
 	private String itemNumber; // Number for the new item - This is a string because characters can be present in the number as well
 	public String [][] itemArray = new String [100][4]; //Storing the item type.
 	
-	
+	//Sorry for the lack of comments, I will do them tomorrow. YOU KNOW I LOVE YOU SAVVY BABES
 	public void setItemType() //This method prompts the user with what to input (Music video, Album, Podcast)
 	{
 		//Giving the user an option to enter an item type
@@ -35,7 +35,7 @@ public class NewItem
 			System.out.println("\t\t C - Podcast");
 			System.out.print("Select Item Type: ");
 			
-			itemType = input.next();// User enters either A, B or C
+			itemType = input.nextLine();// User enters either A, B or C
 		}
 	
 		
@@ -45,7 +45,7 @@ public class NewItem
 			for (int i = 0; i < itemArray.length; i++ )
 			{
 				
-				if (itemArray[i][0].equals(null))
+				if (itemArray[i][0] == null)
 				{
 					itemArray[i][0] = "Music Video";
 					break;
@@ -58,7 +58,7 @@ public class NewItem
 			for (int i = 0; i < itemArray.length; i++ )
 			{
 				
-				if (itemArray[i][0].equals(null))
+				if (itemArray[i][0] == null)
 				{
 					itemArray[i][0] = "Album";
 					break;
@@ -70,7 +70,7 @@ public class NewItem
 			for (int i = 0; i < itemArray.length; i++ )
 			{
 				
-				if (itemArray[i][0].equals(null))
+				if (itemArray[i][0] == null)
 				{
 					itemArray[i][0] = "Podcast";
 					break;
@@ -86,7 +86,7 @@ public class NewItem
 		for (int i = 0; i < itemArray.length; i++ )
 		{
 			
-			if (itemArray[i][1].equals(null))
+			if (itemArray[i][1] == null)
 			{
 				itemArray[i][1] = input2.nextLine();
 				break;
@@ -101,7 +101,7 @@ public class NewItem
 		for (int i = 0; i < itemArray.length; i++ )
 		{
 			
-			if (itemArray[i][2].equals(null))
+			if (itemArray[i][2] == null)
 			{
 				itemArray[i][2] = input2.nextLine();
 				break;
@@ -112,13 +112,13 @@ public class NewItem
 	public void setItemNumber() //Prompts the user to set an item number to identify it
 	{
 		System.out.print("Item number: ");
-		itemNumber = input.next();
+		itemNumber = input.nextLine();
 		for (int i = 0; i < itemArray.length; i++ )
 		{
 			
-			if (itemArray[i][3].equals(null))
+			if (itemArray[i][3] == null)
 			{
-				itemArray[i][3] = input.next();
+				itemArray[i][3] = input.nextLine();
 				break;
 			}
 		}
