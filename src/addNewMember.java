@@ -64,5 +64,3 @@ public class addNewMember {
 		System.out.println(); //Add space
 	}
 }
-
-//Testing stuff
