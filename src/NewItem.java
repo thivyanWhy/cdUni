@@ -163,24 +163,14 @@ public class NewItem
 		}while(!(informationState.equalsIgnoreCase("N") || informationState.equalsIgnoreCase("Y")));
 		
 		//If the shown information is incorrect
-		while (informationState.equalsIgnoreCase("N"))
+		if (informationState.equalsIgnoreCase("N"))
 		{
 			setItemType(1);
 			setTitle(1);
 			setArtist(1);
 			setItemNumber(1);
 			showNewItemDetails();
-			
-			do //Course of action if the user enters an invalid value
-			{
-				System.out.print("Is this information correct? (Y/N) ");
-				informationState = input.next(); 
-				
-				if (!(informationState.equalsIgnoreCase("N") || informationState.equalsIgnoreCase("Y")))
-				{
-					System.err.println("Invalid input");
-				}
-			}while(!(informationState.equalsIgnoreCase("N") || informationState.equalsIgnoreCase("Y")));
+			sortItemList();
 		}
 	}
 
@@ -216,8 +206,13 @@ public class NewItem
 		 *in loop B, it goes through each value of the "titles" array (through loop A) and checks if it is equal to some value in the title column of "itemArray"
 		 *When it does become equal, all of the values in that row is assigned to the values in "itemArraySORTED" array in loop C
 		 */
-		
-		itemArray = itemArraySORTED; //Now the MDA "itemArray" is in alphabetical order
+		for (int i = 0; i<itemArraySORTED.length; i++) //Now the MDA "itemArray" is in alphabetical order
+		{
+			for (int x = 0; x < 4; x++)
+			{
+				itemArray[i][x] = itemArraySORTED[i][x];
+			}
+		}
 	}
 	
 /*CORRECTION ARGUMENT EXPLAINED
