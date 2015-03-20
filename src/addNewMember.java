@@ -73,7 +73,3 @@ public class addNewMember {
 	
 }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/master
