@@ -65,4 +65,3 @@ public class addNewMember {
 	}
 }
 
-// God Vs Gugsi
