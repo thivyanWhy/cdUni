@@ -52,12 +52,13 @@ public class CD_Universe
 			System.out.println("\t\t Add New Member");
 			addNewMember objM = new addNewMember();
 			
-			objM.setName();
-			objM.setNICNumber();
-			objM.setTelephoneNumber();
-			objM.setMemberID();
+			objM.setName(0);
+			objM.setNICNumber(0);
+			objM.setTelephoneNumber(0);
+			objM.setMemberID(0);
 			objM.showMemberDetails();
 			objM.confirmNewMember();
+			objM.sortMemberList();
 		
 	}
 	
