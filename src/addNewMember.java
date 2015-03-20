@@ -54,7 +54,7 @@ public class addNewMember {
 		 */
 	}
 	
-	public void showMemberDetails()
+	public void showMemberDetails() //Shows the details of the new member added
 	{
 		System.out.println("A new member has been added.");
 		System.out.println("Name: " + name);
@@ -63,5 +63,17 @@ public class addNewMember {
 		System.out.println("Member ID: " + memberID);
 		System.out.println(); //Add space
 	}
+
+	public void confirmNewMember() //Asks the user if the displayed information is correct and then gives him the option to edit it
+	{
+		/*
+		 * sort of complicated code. Let me know when you have used arrays for the other stuff
+		 */
+	}
+	
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master

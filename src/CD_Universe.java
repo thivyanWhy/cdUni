@@ -37,38 +37,14 @@ public class CD_Universe
 	{
 		System.out.println("\t\t New Iem"); //Title
 		NewItem obj = new NewItem(); //Creating an object for the newItem class
-		
-		String informationState = "O"; /*This string should either have the option Y or N
-										*After the user has entered the details for the new item, the system prompts the user asking if the entered items are correct
-										*If correct, the value should change to Y, incorrect; N
-		 								*/
-		
-		while (!(informationState.equalsIgnoreCase("Y"))) //While loop A
-		{
-			obj.setItemType(); //Prompt user for details
-			obj.setTitle(); //Prompt user to set the title for the new item
-			obj.setArtist(); //Prompts the user to set the artist for the new item
-			obj.setItemNumber(); //Prompts the user to set the item number
+
+			obj.setItemType(0); //Prompt user for details
+			obj.setTitle(0); //Prompt user to set the title for the new item
+			obj.setArtist(0); //Prompts the user to set the artist for the new item
+			obj.setItemNumber(0); //Prompts the user to set the item number
 			obj.showNewItemDetails(); //Giving a summary of the new item to the user
-			
-			do
-			{
-				//This statement exists if the user enters anything other than Y or N
-					//Giving the user the option to edit the item if the given information is incorrect
-					System.out.print("Is this information correct? (Y/N) ");
-					informationState = input.next();
-						
-					if(!((informationState.equalsIgnoreCase("Y") || informationState.equalsIgnoreCase("N"))))
-					{
-						System.err.println("Invalid input");
-						/*Prints "Invalid input" if the user enters anything other than Y or N
-						* Then the while loop B is carried out, asking the user if the information is correct
-						* If N is entered, the while loop A is carried out
-						*/
-					}
-			}	while (!((informationState.equalsIgnoreCase("Y") || (informationState.equalsIgnoreCase("N")))));//While loop B	
-			
-		}
+			obj.confirmNewItem(); //Asks the user if he has entered the correct values and gives the option to edit them
+			obj.sortItemList();//Sorts the values in the multi dimensional array
 	}
 	
 	
