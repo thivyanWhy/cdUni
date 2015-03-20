@@ -20,17 +20,18 @@ public class CD_Universe
 			System.out.println("\t 2 - Delete Item");
 			System.out.println("\t 3 - Rent Item");
 			System.out.println("\t 4 - Overdue Items");
+			System.out.println("\t 5 - Add New Member");
 			
 			System.out.print("Enter the required number to perform an action: "); // This is going to prompt the user to enter a number
 			action = input.nextInt();
 			System.out.println(); //Add line
 			
 			//Giving an error to the user if he enters an invalid input
-			if (!(action == 0 || action == 1 || action == 2 || action == 3 || action == 4))
+			if (!(action == 0 || action == 1 || action == 2 || action == 3 || action == 4 || action == 5))
 			{
 				System.err.println("Invalid input");
 			}
-		}while (!(action == 0 || action == 1 || action == 2 || action == 3 || action == 4));
+		}while (!(action == 0 || action == 1 || action == 2 || action == 3 || action == 4 || action == 5));
 	}
 	
 	private static void addNewItemActions() //This method executes the set of actions when the user wants to add a new item
@@ -45,6 +46,19 @@ public class CD_Universe
 			obj.showNewItemDetails(); //Giving a summary of the new item to the user
 			obj.confirmNewItem(); //Asks the user if he has entered the correct values and gives the option to edit them
 			obj.sortItemList();//Sorts the values in the multi dimensional array
+	}
+	
+	private static void addNewMemberActions(){
+			System.out.println("\t\t Add New Member");
+			addNewMember objM = new addNewMember();
+			
+			objM.setName();
+			objM.setNICNumber();
+			objM.setTelephoneNumber();
+			objM.setMemberID();
+			objM.showMemberDetails();
+			objM.confirmNewMember();
+		
 	}
 	
 	

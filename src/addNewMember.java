@@ -3,16 +3,21 @@ import java.util.Scanner;
 public class addNewMember {
 	private Scanner in = new Scanner(System.in);
 	private String name, nicNumber, telNumber, memberID; //The details of the new member are stored here
-	
+	public static String [][] newMemberArray = new String [100][5];
 	public void setName() //The user sets the name of the new member
 	{
 		System.out.print("Enter first name: ");
 		name = in.next();
 		System.out.print("Enter last name: ");
 		name = name + " " + in.next();
-		/*
-		 * Make new multi dimensional array and add name
-		 */
+		
+		for (int i = 0; i < newMemberArray.length; i++){
+			if (newMemberArray[i][0] == null){
+				
+				newMemberArray[i][0] = name;
+				
+			}
+		}
 	}
 	
 	public void setNICNumber() //The user sets the NIC number of the new member
@@ -32,26 +37,38 @@ public class addNewMember {
 			}
 		}while (lengthOfNumber != 10 && !(nicNumber.substring(9).equalsIgnoreCase("V") || nicNumber.substring(9).equalsIgnoreCase("X")));	
 	
-		/*
-		 * Make new multi dimensional array for NIC number
-		 */
+		for (int i = 0; i < newMemberArray.length; i++){
+			if (newMemberArray[i][1] == null){
+				
+				newMemberArray[i][1] = nicNumber;
+				
+			}
+		}
 	}
 	
 	public void setTelephoneNumber() //The user sets the telephone number of the new member
 	{
 		telNumber = in.next(); //This does not need to be an int value because mathematical calculations should not be done on it
 		
-		/*
-		 * Make new multi dimensional array for telephone number
-		 */
+		for (int i = 0; i < newMemberArray.length; i++){
+			if (newMemberArray[i][2] == null){
+				
+				newMemberArray[i][2] = telNumber;
+				
+			}
+		}
 	}
 	
 	public void setMemberID() //The user sets the member ID of the new member
 	{
 		memberID = in.next();
-		/*
-		 * Make new multi dimensional array for member ID
-		 */
+		for (int i = 0; i < newMemberArray.length; i++){
+			if (newMemberArray[i][3] == null){
+				
+				newMemberArray[i][3] = memberID;
+				
+			}
+		}
 	}
 	
 	public void showMemberDetails() //Shows the details of the new member added
