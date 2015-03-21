@@ -94,13 +94,29 @@ public class CD_Universe
 			System.out.println("\t\t Add New Member");
 			addNewMember objM = new addNewMember();
 			
-			objM.setName(0);
-			objM.setNICNumber(0);
-			objM.setTelephoneNumber(0);
-			objM.setMemberID(0);
-			objM.showMemberDetails();
-			objM.confirmNewMember();
-			objM.sortMemberList();
+			do//Gives the user the option to go back
+			{
+				System.out.println("0 - Back");
+				System.out.println("1 - Continue to make new item");
+				
+				action = input2.next();
+				
+				if(action.equals("0")){ //Going back to the main screen when the user wants to go back
+					primaryScreen();
+				}else if(action.equalsIgnoreCase("1"))
+				{
+					objM.setName(0);
+					objM.setNICNumber(0);
+					objM.setTelephoneNumber(0);
+					objM.setMemberID(0);
+					objM.showMemberDetails();
+					objM.confirmNewMember();
+					objM.sortMemberList();
+				}else
+				{
+					System.err.println("Invalid input");
+				}
+			}while (!(action.equals("0") || action.equals("1")));
 		
 			System.out.println(newWindow);
 	}
@@ -111,16 +127,32 @@ public class CD_Universe
 		
 		System.out.println("\t\t Delete Item");
 		
-		DeleteItem objD = new DeleteItem();
-		
-		objD.getItemList();
-		objD.deleteItem("deleted");
-		
-		System.out.println("Item deleted");
-		
-		//Sort the item list such that there will be no empty spaces between objects
-		NewItem objN = new NewItem();
-		objN.sortItemList();
+		do//Gives the user the option to go back
+		{
+			System.out.println("0 - Back");
+			System.out.println("1 - Continue to Delete item");
+			
+			action = input2.next();
+			
+			if(action.equals("0")){ //Going back to the main screen when the user wants to go back
+				primaryScreen();
+			}else if(action.equalsIgnoreCase("1"))
+			{
+				DeleteItem objD = new DeleteItem();
+				
+				objD.getItemList();
+				objD.deleteItem("deleted");
+				
+				System.out.println("Item deleted");
+				
+				//Sort the item list such that there will be no empty spaces between objects
+				NewItem objN = new NewItem();
+				objN.sortItemList();
+			}else
+			{
+				System.err.println("Invalid input");
+			}
+		}while (!(action.equals("0") || action.equals("1")));
 		
 		System.out.println(newWindow);
 	}
@@ -131,10 +163,26 @@ public class CD_Universe
 		
 		System.out.println("\t\t Edit Item");
 		
-		EditItemDetails objE = new EditItemDetails();
-		objE.getItemList();
-		objE.editItem();
-		
+		do//Gives the user the option to go back
+		{
+			System.out.println("0 - Back");
+			System.out.println("1 - Continue to make edit item");
+			
+			action = input2.next();
+			
+			if(action.equals("0")){ //Going back to the main screen when the user wants to go back
+				primaryScreen();
+			}else if(action.equalsIgnoreCase("1"))
+			{
+				EditItemDetails objE = new EditItemDetails();
+				objE.getItemList();
+				objE.editItem();
+			}else
+			{
+				System.err.println("Invalid input");
+			}
+		}while (!(action.equals("0") || action.equals("1")));
+				
 		System.out.println(newWindow);
 	}
 	
@@ -144,8 +192,24 @@ public class CD_Universe
 		
 		System.out.println("\t\t Rent Item");
 		
-		RentItem objR = new RentItem();
-		objR.showActions();
+		do//Gives the user the option to go back
+		{
+			System.out.println("0 - Back");
+			System.out.println("1 - Continue to make rent item");
+			
+			action = input2.next();
+			
+			if(action.equals("0")){ //Going back to the main screen when the user wants to go back
+				primaryScreen();
+			}else if(action.equalsIgnoreCase("1"))
+			{
+				RentItem objR = new RentItem();
+				objR.showActions();
+			}else
+			{
+				System.err.println("Invalid input");
+			}
+		}while (!(action.equals("0") || action.equals("1")));
 		
 		System.out.println(newWindow);
 	}
@@ -156,8 +220,24 @@ public class CD_Universe
 		
 		System.out.println("\t\t Overdue Items");
 		
-		OverdueItems objO = new OverdueItems();
-		objO.displayingOverdueItems();
+		do//Gives the user the option to go back
+		{
+			System.out.println("0 - Back");
+			System.out.println("1 - Continue to make Overdue Items");
+			
+			action = input2.next();
+			
+			if(action.equals("0")){ //Going back to the main screen when the user wants to go back
+				primaryScreen();
+			}else if(action.equalsIgnoreCase("1"))
+			{
+				OverdueItems objO = new OverdueItems();
+				objO.displayingOverdueItems();
+			}else
+			{
+				System.err.println("Invalid input");
+			}
+		}while (!(action.equals("0") || action.equals("1")));
 		
 		System.out.println(newWindow);
 	}

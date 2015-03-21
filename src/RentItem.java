@@ -86,22 +86,13 @@ public class RentItem {
 			{
 				//Asks the user to select the member who wants to borrow something
 				System.out.println("Here is the list of members. Enter the member ID.");
-				System.out.println("0 - Exit");
-				action = in.next();
-				
-				//If the user wants to exit
-				if (action.equals("0"))
-				{
-					showActions();
-					return; //MAY CAUSE BUG
-				}
 				
 				for(int i = 0; i<addNewMember.newMemberArray.length; i++)
 				{
 					if(action.equals(addNewMember.newMemberArray[i][3]))
 					{
 						tester = false;
-						
+							
 						for (int x = 0; x<rental.length; x++)
 						{
 							if(rental[x][2] == null)
