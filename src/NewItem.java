@@ -149,29 +149,34 @@ public class NewItem
 	{
 		String informationState = "O"; //This string changes to Y or N depends on whether the given displayed information is correct. It is initialized to "O" at the start
 		
-		do //Course of action if the user enters an invalid value
+		do //Keeps asking the user if the entered values are correct whenever he says they are not and then fixes it
 		{
-			System.out.print("Is this information correct? (Y/N) ");
-			informationState = input.next(); /*This string should either have the option Y or N
-			 									*After the user has entered the details for the new item, the system prompts the user asking if the entered items are correct
-			 									*If correct, the value should change to Y, incorrect; N*/
-			
-			if (!(informationState.equalsIgnoreCase("N") || informationState.equalsIgnoreCase("Y")))
+			do //Course of action if the user enters an invalid value
 			{
-				System.err.println("Invalid input");
+				System.out.println();
+				System.out.print("Is this information correct? (Y/N) ");
+				informationState = input.next(); /*This string should either have the option Y or N
+				 									*After the user has entered the details for the new item, the system prompts the user asking if the entered items are correct
+				 									*If correct, the value should change to Y, incorrect; N*/
+				
+				if (!(informationState.equalsIgnoreCase("N") || informationState.equalsIgnoreCase("Y")))
+				{
+					System.err.println("Invalid input");
+				}
+			
+			}while(!(informationState.equalsIgnoreCase("N") || informationState.equalsIgnoreCase("Y")));
+			
+			//If the shown information is incorrect
+			if (informationState.equalsIgnoreCase("N"))
+			{
+				setItemType(1);
+				setTitle(1);
+				setArtist(1);
+				setItemNumber(1);
+				showNewItemDetails();
+				sortItemList();
 			}
-		}while(!(informationState.equalsIgnoreCase("N") || informationState.equalsIgnoreCase("Y")));
-		
-		//If the shown information is incorrect
-		if (informationState.equalsIgnoreCase("N"))
-		{
-			setItemType(1);
-			setTitle(1);
-			setArtist(1);
-			setItemNumber(1);
-			showNewItemDetails();
-			sortItemList();
-		}
+		}while (informationState.equalsIgnoreCase("N"));	
 	}
 
 	public void sortItemList() //After the item is created, it is sorted in alphabetical order
