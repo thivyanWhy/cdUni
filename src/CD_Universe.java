@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.Scanner;//hellol
 
 public class CD_Universe 
 {
@@ -48,7 +48,8 @@ public class CD_Universe
 			obj.sortItemList();//Sorts the values in the multi dimensional array
 	}
 	
-	private static void addNewMemberActions(){
+	private static void addNewMemberActions() //Set of actions to be undertaken when adding a new member
+{
 			System.out.println("\t\t Add New Member");
 			addNewMember objM = new addNewMember();
 			
@@ -61,18 +62,58 @@ public class CD_Universe
 			objM.sortMemberList();
 		
 	}
+
+	private static void deleteItemActions() //Set of actions when deleting an item
+	{
+		DeleteItem objD = new DeleteItem();
+		
+		objD.getItemList();
+		objD.deleteItem("deleted");
+		
+		System.out.println("Item deleted");
+		
+		//Sort the item list such that there will be no empty spaces between objects
+		NewItem objN = new NewItem();
+		objN.sortItemList();
+	}
+
+	private static void editItemDetailsActions() //Set of actions to be undertaken when editing an item
+	{
+		EditItemDetails objE = new EditItemDetails();
+		objE.getItemList();
+		objE.editItem();
+	}
 	
+	private static void rentItemActions() //Set of actions when an item is to be rented
+	{
+		RentItem objR = new RentItem();
+		
+		objR.showActions();
+	}
+	
+	private static void overdueItemsActions()
+	{
+		OverdueItems objO = new OverdueItems();
+		objO.displayingOverdueItems();
+	}
 	
 	public static void main(String[] args) 
 	{
-		primaryScreen();
-		
-		switch(action)
+		do
 		{
-			case 0:addNewItemActions();
-				primaryScreen(); //After a new item is added, the system should go back to the primary screen, without exiting the program
-				break;
-		}
+			primaryScreen();
+			
+			switch(action)
+			{
+				case 0: addNewItemActions();	break; //When the user wants to add a new item
+				case 1: editItemDetailsActions();	break; //When the user wants to edit a new item
+				case 2: deleteItemActions();	break; //When the user wants to delete an item
+				case 3: rentItemActions();	break; //When renting an item
+				case 4: overdueItemsActions(); break; //When looking for a list of overdue items
+				case 5: addNewMemberActions();	break; //When the user wants to add a new member
+			}
+		}while(true); //Creates an infinite loop such that the program displays the primary screen every time an action is completed
+		
 	}
 		
 

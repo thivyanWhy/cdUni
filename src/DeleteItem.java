@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.Scanner;//hello
 
 public class DeleteItem {
 	private static Scanner in = new Scanner(System.in);
