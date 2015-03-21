@@ -29,10 +29,8 @@ public class DeleteItem {
 			
 			for (int i = 0; i<NewItem.itemArray.length; i++)
 			{
-				String value = NewItem.itemArray[i][3];
-				
 
-				if(value.equals(itemNO))
+				if(NewItem.itemArray[i][3] != null && NewItem.itemArray[i][3].equals(itemNO))
 				{
 					tester = false; //If the corresponding item number is found in the list, then change the value of tester to false
 					
