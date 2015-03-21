@@ -3,6 +3,7 @@ import java.util.Scanner;//hellol
 public class CD_Universe 
 {
 	private static Scanner input = new Scanner (System.in);
+	private static Scanner input2 = new Scanner (System.in);
 	
 	private static String action;
 	private static int actionINT = 9;
@@ -56,17 +57,33 @@ public class CD_Universe
 	{
 		System.out.println(newWindow);
 		
-		System.out.println("\t\t New Iem"); //Title
+		System.out.println("\t\t New Item"); //Title
 		NewItem obj = new NewItem(); //Creating an object for the newItem class
 
-			obj.setItemType(0); //Prompt user for details
-			obj.setTitle(0); //Prompt user to set the title for the new item
-			obj.setArtist(0); //Prompts the user to set the artist for the new item
-			obj.setItemNumber(0); //Prompts the user to set the item number
-			obj.showNewItemDetails(); //Giving a summary of the new item to the user
-			obj.confirmNewItem(); //Asks the user if he has entered the correct values and gives the option to edit them
-			obj.sortItemList();//Sorts the values in the multi dimensional array
+		do//Gives the user the option to go back
+		{
+			System.out.println("0 - Back");
+			System.out.println("1 - Continue to make new item");
 			
+			action = input2.next();
+			
+			if(action.equals("0")){ //Going back to the main screen when the user wants to go back
+				primaryScreen();
+			}else if(action.equalsIgnoreCase("1"))
+			{
+				obj.setItemType(0); //Prompt user for details
+				obj.setTitle(0); //Prompt user to set the title for the new item
+				obj.setArtist(0); //Prompts the user to set the artist for the new item
+				obj.setItemNumber(0); //Prompts the user to set the item number
+				obj.showNewItemDetails(); //Giving a summary of the new item to the user
+				obj.confirmNewItem(); //Asks the user if he has entered the correct values and gives the option to edit them
+				obj.sortItemList();//Sorts the values in the multi dimensional arr
+			}else
+			{
+				System.err.println("Invalid input");
+			}
+		}while (!(action.equals("0") || action.equals("1")));
+		
 		System.out.println(newWindow);
 	}
 	

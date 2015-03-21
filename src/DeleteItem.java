@@ -9,12 +9,10 @@ public class DeleteItem {
 		
 		for(int i = 0; i<NewItem.itemArray.length; i++)
 		{
-			if(NewItem.itemArray[i][3] == null)
+			if(!(NewItem.itemArray[i][3] == null))
 			{
-				break;
+				System.out.println(NewItem.itemArray[i][3] + "\t\t\t" + NewItem.itemArray[i][1]);
 			}
-			
-			System.out.println(NewItem.itemArray[i][3] + "\t\t\t" + NewItem.itemArray[i][1]);
 		}	
 	}
 
@@ -24,11 +22,16 @@ public class DeleteItem {
 		
 		do
 		{
-			System.out.print("Enter the Item number of what is to be " + verb + "? ");
+			System.out.print("Enter the Item number of what is to be " + verb + "? "); //String "verb" exists because the same method is called in the EditItem class as well
 			String itemNO = in.next();
 			
 			for (int i = 0; i<NewItem.itemArray.length; i++)
 			{
+				
+				if(NewItem.itemArray[i][3] == null)
+				{
+					break;
+				}
 
 				if(NewItem.itemArray[i][3] != null && NewItem.itemArray[i][3].equals(itemNO))
 				{

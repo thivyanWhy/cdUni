@@ -15,7 +15,7 @@ public class EditItemDetails {
 				break;
 			}
 			
-			System.out.println(NewItem.itemArray[i][3] + "\t\t\t" + NewItem.itemArray[i][1]);
+			System.out.println(NewItem.itemArray[i][3] + "\t\t" + NewItem.itemArray[i][1]);
 		}
 	}
 	
