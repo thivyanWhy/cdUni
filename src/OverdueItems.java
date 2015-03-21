@@ -8,9 +8,14 @@ public class OverdueItems {
 		
 		for (int i = 0; i < RentItem.rental.length; i++)
 		{
-			//Converting the days borrowed from integer to string
-			String daysBorrowed = RentItem.rental[i][4];
-			int daysBorrowedINT = Integer.parseInt(daysBorrowed);
+			int daysBorrowedINT = 0;	
+			
+			if(RentItem.rental[i][4] != null)
+			{
+				//Converting the days borrowed from integer to string
+				String daysBorrowed = RentItem.rental[i][4];
+				daysBorrowedINT = Integer.parseInt(daysBorrowed);
+			}
 			
 			if(RentItem.rental[i][1] != null && RentItem.rental[i][1].equals("Weekly") && daysBorrowedINT > 7) //Show if the list of rented items is of weekly type
 			{
@@ -22,6 +27,8 @@ public class OverdueItems {
 				System.out.println(RentItem.rental[i][0] + "\t" + RentItem.rental[i][4] + "\t" + RentItem.rental[i][2]);
 			}
 		}
+		
+		System.out.println();//Add space
 	}
 
 	//Discuss additional functionalitites to this
