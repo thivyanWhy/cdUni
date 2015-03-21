@@ -57,8 +57,21 @@ public class addNewMember {
 	
 	public void setTelephoneNumber(int correction) //The user sets the telephone number of the new member
 	{
-		System.out.print("Enter telephone number: ");
-		telNumber = in.next(); //This does not need to be an int value because mathematical calculations should not be done on it
+		boolean tester = true;
+		
+		do //Keeps asking for the telephone number until the user enters one which has all numeric values.
+		{
+			System.out.print("Enter telephone number: ");
+			telNumber = in.next(); //This does not need to be an int value because mathematical calculations should not be done on it
+			
+			try{
+				int tel = Integer.parseInt(telNumber);
+				tester = false;
+			}catch (Exception e)
+			{
+				System.err.println("Telephone number cannot contain non numeric values" );
+			}
+		}while (tester);
 		
 		for (int i = 0; i < newMemberArray.length; i++){
 			if (newMemberArray[i][2] == null){
