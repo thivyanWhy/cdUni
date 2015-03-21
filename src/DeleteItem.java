@@ -14,7 +14,7 @@ public class DeleteItem {
 				break;
 			}
 			
-			System.out.println(NewItem.itemArray[i][3] + "\t" + NewItem.itemArray[i][1]);
+			System.out.println(NewItem.itemArray[i][3] + "\t\t\t" + NewItem.itemArray[i][1]);
 		}	
 	}
 

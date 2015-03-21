@@ -32,18 +32,18 @@ public class CD_Universe
 			{
 				actionINT = Integer.parseInt(action);
 				tester = false;
+				
+				//Giving an error to the user if he enters an invalid input
+				if (!(actionINT == 0 || actionINT == 1 || actionINT == 2 || actionINT == 3 || actionINT == 4 || actionINT == 5))
+				{
+					System.err.println("Invalid input");
+				}else
+				{
+					tester = false;
+				}
 			}catch (Exception e)
 			{
 				System.err.println("Invalid input");
-			}
-			
-			//Giving an error to the user if he enters an invalid input
-			if (!(actionINT == 0 || actionINT == 1 || actionINT == 2 || actionINT == 3 || actionINT == 4 || actionINT == 5))
-			{
-				System.err.println("Invalid input");
-			}else
-			{
-				tester = false;
 			}
 		}while(tester);
 	}
