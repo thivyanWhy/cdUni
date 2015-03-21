@@ -84,7 +84,7 @@ public class RentItem {
 			do
 			{
 				//Asks the user to select the member who wants to borrow something
-				System.out.println("Here is the list of members. Enter the member ID.");
+				System.out.print("Here is the list of members. Enter the member ID. ");
 				action = in.next();
 				
 				for(int i = 0; i<addNewMember.newMemberArray.length; i++)
@@ -124,7 +124,7 @@ public class RentItem {
 			
 			do
 			{
-				System.out.println("Here is a list of the available items. Enter the Item number.");
+				System.out.print("Here is a list of the available items. Enter the Item number. ");
 				itemNumber = in.next();
 				
 				for(int i = 0; i < NewItem.itemArray.length; i++) //Go through the item number in itemArray
@@ -196,9 +196,9 @@ public class RentItem {
 			{
 				tester = false; //When the loop starts, tester is initialized to false
 				System.out.println("Enter rental date (DD MM YYYY): ");
-				rentalDate = in2.nextLine();
+				rentalDate = in2.nextLine() + " ";
 				
-				if (!(rentalDate.substring(2) == " " && rentalDate.substring(5) == " "))
+				if (!(rentalDate.substring(2,3).equals(" ") && rentalDate.substring(5,6).equals(" ")))
 				{
 					System.err.println("Invalid input");
 					tester = true; //If the spacing is not done properly, spacing gets reinitialized to true
@@ -207,9 +207,9 @@ public class RentItem {
 				//Exception handling when the user has entered an input which is not a numeric value
 				try
 				{
-					Integer.parseInt(rentalDate.substring(0, 1));
-					Integer.parseInt(rentalDate.substring(3, 4));
-					Integer.parseInt(rentalDate.substring(6, 9));
+					Integer.parseInt(rentalDate.substring(0, 2));
+					Integer.parseInt(rentalDate.substring(3, 5));
+					Integer.parseInt(rentalDate.substring(6, 10));
 				}catch (Exception e)
 				{
 					System.err.println("Invalid input");
