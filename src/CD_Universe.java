@@ -92,6 +92,8 @@ public class CD_Universe
 	{
 		System.out.println(newWindow);
 		
+		System.out.println("\t\t Delete Item");
+		
 		DeleteItem objD = new DeleteItem();
 		
 		objD.getItemList();
@@ -110,6 +112,8 @@ public class CD_Universe
 	{
 		System.out.println(newWindow);
 		
+		System.out.println("\t\t Edit Item");
+		
 		EditItemDetails objE = new EditItemDetails();
 		objE.getItemList();
 		objE.editItem();
@@ -121,6 +125,8 @@ public class CD_Universe
 	{
 		System.out.println(newWindow);
 		
+		System.out.println("\t\t Rent Item");
+		
 		RentItem objR = new RentItem();
 		objR.showActions();
 		
@@ -130,6 +136,8 @@ public class CD_Universe
 	private static void overdueItemsActions()
 	{
 		System.out.println(newWindow);
+		
+		System.out.println("\t\t Overdue Items");
 		
 		OverdueItems objO = new OverdueItems();
 		objO.displayingOverdueItems();
