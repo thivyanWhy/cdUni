@@ -6,9 +6,12 @@ public class CD_Universe
 	
 	private static String action;
 	private static int actionINT = 9;
+	private static String newWindow = "\n------------------------------------------------------------------------\n"; //Making a small window such that the user can read what's actually in that window
 	
 	private static void primaryScreen() //Method shows the initial screen with the main set of options (add new item, edit items, delete items, rent items, overdue items)
 	{
+			System.out.println(newWindow);
+		
 			System.out.println("\t\t CD Universe"); //Title
 			System.out.println(); //Add space
 			
@@ -46,10 +49,13 @@ public class CD_Universe
 				System.err.println("Invalid input");
 			}
 		}while(tester);
+		System.out.println(newWindow);
 	}
 	
 	private static void addNewItemActions() //This method executes the set of actions when the user wants to add a new item
 	{
+		System.out.println(newWindow);
+		
 		System.out.println("\t\t New Iem"); //Title
 		NewItem obj = new NewItem(); //Creating an object for the newItem class
 
@@ -60,10 +66,14 @@ public class CD_Universe
 			obj.showNewItemDetails(); //Giving a summary of the new item to the user
 			obj.confirmNewItem(); //Asks the user if he has entered the correct values and gives the option to edit them
 			obj.sortItemList();//Sorts the values in the multi dimensional array
+			
+		System.out.println(newWindow);
 	}
 	
 	private static void addNewMemberActions() //Set of actions to be undertaken when adding a new member
-{
+	{
+			System.out.println(newWindow);
+		
 			System.out.println("\t\t Add New Member");
 			addNewMember objM = new addNewMember();
 			
@@ -75,10 +85,13 @@ public class CD_Universe
 			objM.confirmNewMember();
 			objM.sortMemberList();
 		
+			System.out.println(newWindow);
 	}
 
 	private static void deleteItemActions() //Set of actions when deleting an item
 	{
+		System.out.println(newWindow);
+		
 		DeleteItem objD = new DeleteItem();
 		
 		objD.getItemList();
@@ -89,26 +102,39 @@ public class CD_Universe
 		//Sort the item list such that there will be no empty spaces between objects
 		NewItem objN = new NewItem();
 		objN.sortItemList();
+		
+		System.out.println(newWindow);
 	}
 
 	private static void editItemDetailsActions() //Set of actions to be undertaken when editing an item
 	{
+		System.out.println(newWindow);
+		
 		EditItemDetails objE = new EditItemDetails();
 		objE.getItemList();
 		objE.editItem();
+		
+		System.out.println(newWindow);
 	}
 	
 	private static void rentItemActions() //Set of actions when an item is to be rented
 	{
-		RentItem objR = new RentItem();
+		System.out.println(newWindow);
 		
+		RentItem objR = new RentItem();
 		objR.showActions();
+		
+		System.out.println(newWindow);
 	}
 	
 	private static void overdueItemsActions()
 	{
+		System.out.println(newWindow);
+		
 		OverdueItems objO = new OverdueItems();
 		objO.displayingOverdueItems();
+		
+		System.out.println(newWindow);
 	}
 	
 	public static void main(String[] args) 
