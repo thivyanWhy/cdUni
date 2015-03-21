@@ -179,40 +179,7 @@ public class NewItem
 		String []titles = new String[100];
 		String [][] itemArraySORTED = new String [100][4];
 		
-		//Goes through all the titles in the "itemArray" multi dimensional array and assign them to their respective values in the "titles" array
-		for (int i = 0; i<itemArray.length; i++)
-		{
-			titles[i] = itemArray[i][1];
-		}
 		
-		Arrays.sort(titles); //Sorts the "titles" array in alphabetical order
-		
-		for (int i = 0; i<titles.length; i++) //loop A
-		{
-			for (int x = 0; x<itemArray.length; x++) //loop B
-			{
-				if(titles[i].equals(itemArray[x][1])) //loop C
-				{
-					for(int y = 0; y < 4; y++)
-					{
-						itemArraySORTED[i][y] = itemArray[x][y];
-					}
-				}
-			}
-		}
-		
-		/*EXPLAINATION FOR THE CODE ABOVE
-		 *The "titles" array is sorted in alphabetical order
-		 *in loop B, it goes through each value of the "titles" array (through loop A) and checks if it is equal to some value in the title column of "itemArray"
-		 *When it does become equal, all of the values in that row is assigned to the values in "itemArraySORTED" array in loop C
-		 */
-		for (int i = 0; i<itemArraySORTED.length; i++) //Now the MDA "itemArray" is in alphabetical order
-		{
-			for (int x = 0; x < 4; x++)
-			{
-				itemArray[i][x] = itemArraySORTED[i][x];
-			}
-		}
 	}
 	
 /*CORRECTION ARGUMENT EXPLAINED

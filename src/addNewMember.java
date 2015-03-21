@@ -119,39 +119,44 @@ public class addNewMember {
 		String [][] newMemberArraySORTED = new String [100][4];
 		
 		//Goes through all the titles in the "itemArray" multi dimensional array and assign them to their respective values in the "titles" array
-		for (int i = 0; i<newMemberArray.length; i++)
-		{
-			members[i] = newMemberArray[i][1];
-		}
-		
-		Arrays.sort(members); //Sorts the "titles" array in alphabetical order
-		
-		for (int i = 0; i<members.length; i++) //loop A
-		{
-			for (int x = 0; x<newMemberArray.length; x++) //loop B
-			{
-				if(members[i].equals(newMemberArray[x][1])) //loop C
+				for (int i = 0; i<newMemberArray.length; i++)
 				{
-					for(int y = 0; y < 4; y++)
+					if (newMemberArray[i][0] == null)
 					{
-						newMemberArraySORTED[i][y] = newMemberArray[x][y];
+						break;
+					}
+					
+					members[i] = newMemberArray[i][0];
+				}
+				
+				Arrays.sort(members); //Sorts the "titles" array in alphabetical order
+				
+				for (int i = 0; i<members.length; i++) //loop A
+				{
+					for (int x = 0; x<newMemberArray.length; x++) //loop B
+					{
+						if(members[i].equals(newMemberArray[x][0])) //loop C
+						{
+							for(int y = 0; y < 4; y++)
+							{
+								newMemberArraySORTED[i][y] = newMemberArray[x][y];
+							}
+						}
 					}
 				}
-			}
-		}
-		
-		/*EXPLAINATION FOR THE CODE ABOVE
-		 *The "titles" array is sorted in alphabetical order
-		 *in loop B, it goes through each value of the "members" array (through loop A) and checks if it is equal to some value in the title column of "newMemberArray"
-		 *When it does become equal, all of the values in that row is assigned to the values in "newMemberArraySORTED" array in loop C
-		 */
-		for (int i = 0; i<newMemberArraySORTED.length; i++) //Now the MDA "itemArray" is in alphabetical order
-		{
-			for (int x = 0; x < 4; x++)
-			{
-				newMemberArray[i][x] = newMemberArraySORTED[i][x];
-			}
-		}
+				
+				/*EXPLAINATION FOR THE CODE ABOVE
+				 *The "titles" array is sorted in alphabetical order
+				 *in loop B, it goes through each value of the "members" array (through loop A) and checks if it is equal to some value in the title column of "newMemberArray"
+				 *When it does become equal, all of the values in that row is assigned to the values in "newMemberArraySORTED" array in loop C
+				 */
+				for (int i = 0; i<newMemberArraySORTED.length; i++) //Now the MDA "itemArray" is in alphabetical order
+				{
+					for (int x = 0; x < 4; x++)
+					{
+						newMemberArray[i][x] = newMemberArraySORTED[i][x];
+					}
+				}	
 	}
 }
 
