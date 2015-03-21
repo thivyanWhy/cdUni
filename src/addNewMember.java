@@ -37,15 +37,13 @@ public class addNewMember {
 			System.out.print("Enter NIC number: ");
 			nicNumber = in.next() + "          "; //10 spaces are added to prevent errors
 			lengthOfNumber = nicNumber.length(); //Finding the number of characters in the NIC number
-			System.out.println(lengthOfNumber);
-			System.out.println(nicNumber.substring(9));
 			
 			//This is if the user enters an invalid NIC number
-			if (lengthOfNumber != 20 || !(nicNumber.substring(9).equalsIgnoreCase("V") || nicNumber.substring(9).equalsIgnoreCase("X")))
+			if(lengthOfNumber != 20 || (!(nicNumber.substring(9,10).equalsIgnoreCase("V") || nicNumber.substring(9,10).equalsIgnoreCase("X")))) //20 because of the 10 spaces added
 			{
 				System.err.println("Invalid input. Check whether there are 10 characters or ends with a V or X");
 			}
-		}while (lengthOfNumber != 20 || !(nicNumber.substring(9).equalsIgnoreCase("V") || nicNumber.substring(9).equalsIgnoreCase("X")));	
+		}while (lengthOfNumber != 20 || !(nicNumber.substring(9,10).equalsIgnoreCase("V") || nicNumber.substring(9,10).equalsIgnoreCase("X")));	
 	
 		for (int i = 0; i < newMemberArray.length; i++)
 		{
