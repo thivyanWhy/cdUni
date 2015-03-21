@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class RentItem {
 
 	private Scanner in = new Scanner(System.in); //For inputs with no white spaces
-	private Scanner in2 = new Scanner(System.in); //FOr inputs with white spaces
+	private Scanner in2 = new Scanner(System.in); //For inputs with white spaces
 	
 	private String action;
 	private String itemNumber;
@@ -295,37 +295,14 @@ public class RentItem {
 		}
 
 		
-		private void setTimeBorrowed() //Calculates the amount of time taken since the item has been borrowed
+		public int setTimeBorrowed() //Calculates the amount of time taken since the item has been borrowed
 		{
-			Date today = new Date(); //Today's date
+			System.out.print("Enter today's date (DD MM YYYY) ");
+			String rentalDate = in2.nextLine();
 			
 			int borrowedDay = Integer.parseInt(rentalDate.substring(0, 1));
 			int borrowedMonth = Integer.parseInt(rentalDate.substring(3, 4));
 			int borrowedYear = Integer.parseInt(rentalDate.substring(6, 9));
-			
-			Date borrowedDate = new Date (borrowedYear, borrowedMonth, borrowedDay);
-			
-			long differenceInMilliseconds = today.getTime() - borrowedDate.getTime();
-			
-			Calendar cal = Calendar.getInstance();
-			cal.setTimeInMillis(differenceInMilliseconds);
-			
-			int year = cal.get(Calendar.YEAR) - 1970;
-			int month = cal.get(Calendar.MONTH);
-			int day = cal.get(Calendar.DATE);
-			
-			int totaldaysAPPROX = day + month*30 + year*365; //Get an approximate value of the total days borrowed
-			
-			String totalDays = Integer.toString(totaldaysAPPROX);
-			
-			for(int i = 0; i<rental.length; i++)
-			{
-				if(rental[i][4]==null)
-				{
-					rental[i][4] = totalDays; //Shows the approximate amount of days since the item has been rented
-					break;
-				}
-			}
 		}
 /*CORRECTION ARGUMENT EXPLAINED
  * In the addNewItemActions() method in the CD_Universe class, the given value for correction is 0

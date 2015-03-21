@@ -4,7 +4,7 @@ public class OverdueItems {
 
 	public void displayingOverdueItems()
 	{
-		System.out.println("Item Number \t Days borrowed \t Renter");
+		System.out.println("Item Number \t\t Days borrowed \t\t Renter");
 		
 		for (int i = 0; i < RentItem.rental.length; i++)
 		{
@@ -19,7 +19,7 @@ public class OverdueItems {
 			
 			if(RentItem.rental[i][1] != null && RentItem.rental[i][1].equals("Weekly") && daysBorrowedINT > 7) //Show if the list of rented items is of weekly type
 			{
-				System.out.println(RentItem.rental[i][0] + "\t" + RentItem.rental[i][4] + "\t" + RentItem.rental[i][2]);
+				System.out.println(RentItem.rental[i][0] + "\t\t" + RentItem.rental[i][4] + "\t\t" + RentItem.rental[i][2]);
 			}
 			
 			if(RentItem.rental[i][1] != null && RentItem.rental[i][1].equals("Overnight") && daysBorrowedINT > 1) //Show if the list of rented items is of overnight type
