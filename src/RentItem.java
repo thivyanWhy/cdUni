@@ -14,6 +14,8 @@ public class RentItem {
 	private String rentalDate; //(DD MM YYYY)
 	private String timeBorrowed;
 	
+	private boolean cont; //This is used if there are no members or items so that the user does not get stuck
+	
 	public static String [][]rental = new String[100][5]; //Multi dimensional array for rentals
 		/*Column 1: Item Number
 		 *Column 2: Rental type
@@ -44,11 +46,15 @@ public class RentItem {
 			{
 				setMembertoRental(0);
 				setItemNumberToRental(0);
-				setRentalType(0);
-				setRentalDate(0);
-				showRentalDetails();
-				confirmRentalDetails();
-				setTimeBorrowed();
+				
+				if(cont)
+				{
+					setRentalType(0);
+					setRentalDate(0);
+					showRentalDetails();
+					confirmRentalDetails();
+					setTimeBorrowed();
+				}
 			}
 			
 			if(action.equals("1")) //If the user selects Add new member
@@ -85,8 +91,11 @@ public class RentItem {
 			if(count1 == 0)
 			{
 				System.err.println("There are no members.");
+				cont = false;
 			}else
 			{
+				cont = true;
+				
 				do
 				{	
 					//Asks the user to select the member who wants to borrow something
@@ -136,8 +145,11 @@ public class RentItem {
 			if(count == 0)
 			{
 				System.err.println("There are no items available");
+				cont = false;
 			}else
 			{
+				cont = true; 
+				
 				do
 				{
 					System.out.print("Here is a list of the available items. Enter the Item number. ");
@@ -169,6 +181,7 @@ public class RentItem {
 			}
 		}
 
+		
 		private void setRentalType(int correction) //The rental type (weekly/ overnight) is selected
 		{
 			System.out.println("0 - Weekly");
@@ -205,6 +218,7 @@ public class RentItem {
 			}while(!(action.equals("0") || action.equals("1")));
 		}
 
+		
 		private void setRentalDate(int correction) //Date of rental is selected
 		{
 			boolean tester = false;
@@ -244,6 +258,7 @@ public class RentItem {
 			}
 		}
 
+		
 		private void showRentalDetails()
 		{
 			System.out.println("\t A rental has been made.");
@@ -254,6 +269,7 @@ public class RentItem {
 			System.out.println("Date of rental: " + rentalDate);
 		}
 
+		
 		private void confirmRentalDetails()
 		{
 			do //Shows error message if user inputs a value that is not Y or N
@@ -278,6 +294,7 @@ public class RentItem {
 			}
 		}
 
+		
 		private void setTimeBorrowed() //Calculates the amount of time taken since the item has been borrowed
 		{
 			Date today = new Date(); //Today's date
