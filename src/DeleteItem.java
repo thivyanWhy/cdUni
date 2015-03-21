@@ -3,8 +3,6 @@ import java.util.Scanner;//hello
 public class DeleteItem {
 	private static Scanner in = new Scanner(System.in);
 	
-	private String itemNO;
-	
 	public void getItemList() //Loops through the list of items and displays list of items and ID
 	{
 		System.out.println("Item Number \t Title");
@@ -27,11 +25,14 @@ public class DeleteItem {
 		do
 		{
 			System.out.print("Enter the Item number of what is to be " + verb + "? ");
-			itemNO = in.next();
+			String itemNO = in.next();
 			
 			for (int i = 0; i<NewItem.itemArray.length; i++)
 			{
-				if(NewItem.itemArray[i][3] == itemNO)
+				String value = NewItem.itemArray[i][3];
+				
+
+				if(value.equals(itemNO))
 				{
 					tester = false; //If the corresponding item number is found in the list, then change the value of tester to false
 					
@@ -48,5 +49,4 @@ public class DeleteItem {
 			}
 		}while(tester);
 	}
-//Sort item array after
 }
