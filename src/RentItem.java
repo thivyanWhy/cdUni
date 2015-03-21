@@ -73,12 +73,11 @@ public class RentItem {
 			
 			for(int i = 0; i<addNewMember.newMemberArray.length; i++) //Displaying a list of members along with their ID
 			{
-				if(addNewMember.newMemberArray[i][3] == null)
+				if(!(addNewMember.newMemberArray[i][3] == null))
 				{
-					break; //Break the loop if an empty space is found
+					System.out.println(addNewMember.newMemberArray[i][3] + "\t\t" + addNewMember.newMemberArray[i][0]);
 				}
 				
-				System.out.println(addNewMember.newMemberArray[i][3] + "\t\t" + addNewMember.newMemberArray[i][0]);
 			}
 			
 			do
@@ -102,6 +101,10 @@ public class RentItem {
 							}
 						}
 					}
+				}
+				if(tester)
+				{
+					System.err.println("Member could not be found");
 				}
 			}while (tester);
 		}
