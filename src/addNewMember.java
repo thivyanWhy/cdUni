@@ -3,7 +3,7 @@ import java.util.Arrays;
 
 public class addNewMember {
 	private Scanner in = new Scanner(System.in);
-	String action; //Stores the action number user enters
+	private String action; //Stores the action number user enters
 	private String name, nicNumber, telNumber, memberID; //The details of the new member are stored here
 	public static String [][] newMemberArray = new String [100][4];
 		/*Column 1: Name

@@ -1,17 +1,9 @@
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Scanner;
 
 public class RentItem {
 
-<<<<<<< HEAD
-	private Scanner in = new Scanner(System.in);
-	private String action;
-	private String rentalType;
-	
-	public String [][]rental = new String[100][3]; //Multi dimensional array for rentals
-		/*Column 1: Item Number
-		 *Column 2: Rental type
-		 *Column 3: Renter
-=======
 	private Scanner in = new Scanner(System.in); //For inputs with no white spaces
 	private Scanner in2 = new Scanner(System.in); //FOr inputs with white spaces
 	
@@ -19,24 +11,22 @@ public class RentItem {
 	private String itemNumber;
 	private String rentalType;
 	private String renter;
-	private String rentalDate;
+	private String rentalDate; //(DD MM YYYY)
+	private String timeBorrowed;
 	
-	public String [][]rental = new String[100][4]; //Multi dimensional array for rentals
+	public static String [][]rental = new String[100][5]; //Multi dimensional array for rentals
 		/*Column 1: Item Number
 		 *Column 2: Rental type
 		 *Column 3: Renter
 		 *Column 4: Rental Date
->>>>>>> origin/master
+		 *Column 5: Borrowed time (days)
 		 */
 	
 		public void showActions()
 		{
-<<<<<<< HEAD
-=======
 			
 			addNewMember objAM = new addNewMember();
 			
->>>>>>> origin/master
 			do
 			{
 				System.out.println("0 - Rent item"); //This selection asks the user to give the ID of the member who wants to rent out an item
@@ -50,40 +40,6 @@ public class RentItem {
 				}
 			}while (!(action.equals("0") || action.equals("1")));
 			
-<<<<<<< HEAD
-			//MORE CODE TO BE ADDED
-		}
-		
-		//If the user selects "Rent item"
-		public void setMembertoRental() //User selects the member who wants to borrow an item
-		{
-			System.out.println("Member ID \t Name");
-			
-			/*
-			 * loops through the member array (multi dimensional) and displays all the members
-			 */
-			
-			//Asks the user to select the member who wants to borrow something
-			System.out.println("Here is the list of members. Enter the member ID.");
-			System.out.println("0 - Exit");
-			action = in.next();
-			
-			//If the user wants to exit
-			if (action.equals("0"))
-			{
-				showActions();
-				return; //MAY CAUSE BUG
-			}
-			
-			//If the user enters a member ID
-				/*
-				 * loops through member array and finds the member with the desired ID
-				 * 
-				 */
-		}
-
-		public void setItemNumberToRental()
-=======
 			if (action.equals("0")) //If the user selects "Rent item"
 			{
 				setMembertoRental(0);
@@ -92,6 +48,7 @@ public class RentItem {
 				setRentalDate(0);
 				showRentalDetails();
 				confirmRentalDetails();
+				setTimeBorrowed();
 			}
 			
 			if(action.equals("1")) //If the user selects Add new member
@@ -159,7 +116,6 @@ public class RentItem {
 		}
 
 		private void setItemNumberToRental(int correction) //The item number of the item being rented is selected
->>>>>>> origin/master
 		{
 			boolean tester = true;
 			
@@ -167,33 +123,22 @@ public class RentItem {
 			System.out.println("Item Number \t Title");
 			for (int i = 0; i < NewItem.itemArray.length; i++)
 			{
-<<<<<<< HEAD
-=======
 				if(NewItem.itemArray[i][3] == null)
 				{
 					break; //Break the loop when an empty space is found
 				}
 				
->>>>>>> origin/master
 				System.out.println(NewItem.itemArray[i][3] + "\t" + NewItem.itemArray[i][1]);
 			}
 			
 			do
 			{
 				System.out.println("Here is a list of the available items. Enter the Item number.");
-<<<<<<< HEAD
-				action = in.next();
-				
-				for(int i = 0; i < NewItem.itemArray.length; i++) //Go through the item number in itemArray
-				{
-					if (action.equals(NewItem.itemArray[i][3])) //If the entered item number is equal to the value in the item array
-=======
 				itemNumber = in.next();
 				
 				for(int i = 0; i < NewItem.itemArray.length; i++) //Go through the item number in itemArray
 				{
 					if (itemNumber.equals(NewItem.itemArray[i][3])) //If the entered item number is equal to the value in the item array
->>>>>>> origin/master
 						{
 							tester = false; //When an item number corresponding to the entered value is found, the tester value changes to false
 						
@@ -201,11 +146,7 @@ public class RentItem {
 							{
 								if (rental[x][0] == null)
 								{
-<<<<<<< HEAD
-									rental[x][0] = action;
-=======
 									rental[x - correction][0] = itemNumber;
->>>>>>> origin/master
 									break;
 								}
 							}
@@ -220,11 +161,7 @@ public class RentItem {
 			}while(tester); //If an item number could not be found, tester will remain to be true			
 		}
 
-<<<<<<< HEAD
-		public void setRentalType()
-=======
 		private void setRentalType(int correction) //The rental type (weekly/ overnight) is selected
->>>>>>> origin/master
 		{
 			System.out.println("0 - Weekly");
 			System.out.println("1 - Overnight");
@@ -241,21 +178,13 @@ public class RentItem {
 						
 						if(action.equals("0")) //If the user selects Weekly
 						{
-<<<<<<< HEAD
-							rental[i][1] = "Weekly";
-=======
 							rental[i - correction][1] = "Weekly";
->>>>>>> origin/master
 							break;
 						}
 						
 						if(action.equals("1"))//If the user selects Overnight
 						{
-<<<<<<< HEAD
-							rental[i][1] = "Overnight";
-=======
 							rental[i - correction][1] = "Overnight";
->>>>>>> origin/master
 							break;
 						}
 					}
@@ -268,13 +197,6 @@ public class RentItem {
 			}while(!(action.equals("0") || action.equals("1")));
 		}
 
-<<<<<<< HEAD
-		public void setRentalDate() //Complete later
-		{
-			System.out.println("Enter rental date (DD MM YYYY): ");
-			
-		}
-=======
 		private void setRentalDate(int correction) //Date of rental is selected
 		{
 			boolean tester = false;
@@ -348,6 +270,38 @@ public class RentItem {
 			}
 		}
 
+		private void setTimeBorrowed() //Calculates the amount of time taken since the item has been borrowed
+		{
+			Date today = new Date(); //Today's date
+			
+			int borrowedDay = Integer.parseInt(rentalDate.substring(0, 1));
+			int borrowedMonth = Integer.parseInt(rentalDate.substring(3, 4));
+			int borrowedYear = Integer.parseInt(rentalDate.substring(6, 9));
+			
+			Date borrowedDate = new Date (borrowedYear, borrowedMonth, borrowedDay);
+			
+			long differenceInMilliseconds = today.getTime() - borrowedDate.getTime();
+			
+			Calendar cal = Calendar.getInstance();
+			cal.setTimeInMillis(differenceInMilliseconds);
+			
+			int year = cal.get(Calendar.YEAR) - 1970;
+			int month = cal.get(Calendar.MONTH);
+			int day = cal.get(Calendar.DATE);
+			
+			int totaldaysAPPROX = day + month*30 + year*365; //Get an approximate value of the total days borrowed
+			
+			String totalDays = Integer.toString(totaldaysAPPROX);
+			
+			for(int i = 0; i<rental.length; i++)
+			{
+				if(rental[i][4]==null)
+				{
+					rental[i][4] = totalDays; //Shows the approximate amount of days since the item has been rented
+					break;
+				}
+			}
+		}
 /*CORRECTION ARGUMENT EXPLAINED
  * In the addNewItemActions() method in the CD_Universe class, the given value for correction is 0
  * This is because when looping through the multi dimensional array in the required column and a free space is found (null), the new item must be added to that free space
@@ -356,5 +310,4 @@ public class RentItem {
  * In this case, the program loops through the specific column in the multi dimensional array, and finds an empty space (null).
  * The newly created item is just before that free space. As a result, the changes to be made is in the (i - 1)th row (since i is now an empty row
  */
->>>>>>> origin/master
 }
