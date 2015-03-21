@@ -34,28 +34,29 @@ public class addNewMember {
 		
 		do
 		{
-			System.out.println("Enter NIC number: ");
-			nicNumber = in.next();
+			System.out.print("Enter NIC number: ");
+			nicNumber = in.next() + "          "; //10 spaces are added to prevent errors
 			lengthOfNumber = nicNumber.length(); //Finding the number of characters in the NIC number
 			
 			//This is if the user enters an invalid NIC number
-			if (lengthOfNumber != 10 && !(nicNumber.substring(9).equalsIgnoreCase("V") || nicNumber.substring(9).equalsIgnoreCase("X")))
+			if (lengthOfNumber != 20 || !(nicNumber.substring(9).equalsIgnoreCase("V") || nicNumber.substring(9).equalsIgnoreCase("X")))
 			{
 				System.err.println("Invalid input. Check whether there are 10 characters or ends with a V or X");
 			}
-		}while (lengthOfNumber != 10 && !(nicNumber.substring(9).equalsIgnoreCase("V") || nicNumber.substring(9).equalsIgnoreCase("X")));	
+		}while (lengthOfNumber != 20 || !(nicNumber.substring(9).equalsIgnoreCase("V") || nicNumber.substring(9).equalsIgnoreCase("X")));	
 	
-		for (int i = 0; i < newMemberArray.length; i++){
+		for (int i = 0; i < newMemberArray.length; i++)
+		{
 			if (newMemberArray[i][1] == null){
 				
 				newMemberArray[i - correction][1] = nicNumber;
-				
 			}
 		}
 	}
 	
 	public void setTelephoneNumber(int correction) //The user sets the telephone number of the new member
 	{
+		System.out.print("Enter telephone number: ");
 		telNumber = in.next(); //This does not need to be an int value because mathematical calculations should not be done on it
 		
 		for (int i = 0; i < newMemberArray.length; i++){
@@ -69,12 +70,12 @@ public class addNewMember {
 	
 	public void setMemberID(int correction) //The user sets the member ID of the new member
 	{
+		System.out.print("Enter member ID: ");
 		memberID = in.next();
 		for (int i = 0; i < newMemberArray.length; i++){
 			if (newMemberArray[i][3] == null){
 				
-				newMemberArray[i - correction][3] = memberID;
-				
+				newMemberArray[i - correction][3] = memberID;	
 			}
 		}
 	}

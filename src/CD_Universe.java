@@ -4,13 +4,11 @@ public class CD_Universe
 {
 	private static Scanner input = new Scanner (System.in);
 	
-	private static int action;
+	private static String action;
+	private static int actionINT = 9;
 	
 	private static void primaryScreen() //Method shows the initial screen with the main set of options (add new item, edit items, delete items, rent items, overdue items)
 	{
-		
-		do
-		{
 			System.out.println("\t\t CD Universe"); //Title
 			System.out.println(); //Add space
 			
@@ -22,16 +20,32 @@ public class CD_Universe
 			System.out.println("\t 4 - Overdue Items");
 			System.out.println("\t 5 - Add New Member");
 			
+		boolean tester = true;
+		
+		do
+		{	
 			System.out.print("Enter the required number to perform an action: "); // This is going to prompt the user to enter a number
-			action = input.nextInt();
+			action = input.next();
 			System.out.println(); //Add line
 			
-			//Giving an error to the user if he enters an invalid input
-			if (!(action == 0 || action == 1 || action == 2 || action == 3 || action == 4 || action == 5))
+			try //Showing an error is the user enters a non numeric value
+			{
+				actionINT = Integer.parseInt(action);
+				tester = false;
+			}catch (Exception e)
 			{
 				System.err.println("Invalid input");
 			}
-		}while (!(action == 0 || action == 1 || action == 2 || action == 3 || action == 4 || action == 5));
+			
+			//Giving an error to the user if he enters an invalid input
+			if (!(actionINT == 0 || actionINT == 1 || actionINT == 2 || actionINT == 3 || actionINT == 4 || actionINT == 5))
+			{
+				System.err.println("Invalid input");
+			}else
+			{
+				tester = false;
+			}
+		}while(tester);
 	}
 	
 	private static void addNewItemActions() //This method executes the set of actions when the user wants to add a new item
@@ -103,7 +117,7 @@ public class CD_Universe
 		{
 			primaryScreen();
 			
-			switch(action)
+			switch(actionINT)
 			{
 				case 0: addNewItemActions();	break; //When the user wants to add a new item
 				case 1: editItemDetailsActions();	break; //When the user wants to edit a new item
@@ -113,7 +127,6 @@ public class CD_Universe
 				case 5: addNewMemberActions();	break; //When the user wants to add a new member
 			}
 		}while(true); //Creates an infinite loop such that the program displays the primary screen every time an action is completed
-		
 	}
 		
 
