@@ -97,7 +97,7 @@ public class CD_Universe
 			do//Gives the user the option to go back
 			{
 				System.out.println("0 - Back");
-				System.out.println("1 - Continue to make new item");
+				System.out.println("1 - Continue to add new member");
 				
 				action = input2.next();
 				
@@ -111,7 +111,6 @@ public class CD_Universe
 					objM.setMemberID(0);
 					objM.showMemberDetails();
 					objM.confirmNewMember();
-					objM.sortMemberList();
 				}else
 				{
 					System.err.println("Invalid input");

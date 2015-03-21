@@ -23,7 +23,7 @@ public class addNewMember {
 			if (newMemberArray[i][0] == null){
 				
 				newMemberArray[i - correction][0] = name;
-				
+				break;
 			}
 		}
 	}
@@ -50,6 +50,7 @@ public class addNewMember {
 			if (newMemberArray[i][1] == null){
 				
 				newMemberArray[i - correction][1] = nicNumber;
+				break;
 			}
 		}
 	}
@@ -63,7 +64,7 @@ public class addNewMember {
 			if (newMemberArray[i][2] == null){
 				
 				newMemberArray[i - correction][2] = telNumber;
-				
+				break;
 			}
 		}
 	}
@@ -75,13 +76,15 @@ public class addNewMember {
 		for (int i = 0; i < newMemberArray.length; i++){
 			if (newMemberArray[i][3] == null){
 				
-				newMemberArray[i - correction][3] = memberID;	
+				newMemberArray[i - correction][3] = memberID;
+				break;
 			}
 		}
 	}
 	
 	public void showMemberDetails() //Shows the details of the new member added
 	{
+		System.out.println();//Add space
 		System.out.println("A new member has been added.");
 		System.out.println("Name: " + name);
 		System.out.println("NIC Number: " + nicNumber);

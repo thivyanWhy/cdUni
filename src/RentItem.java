@@ -61,7 +61,6 @@ public class RentItem {
 				objAM.setMemberID(0);
 				objAM.showMemberDetails();
 				objAM.confirmNewMember();
-				objAM.sortMemberList();
 			}
 		}
 		
@@ -79,13 +78,14 @@ public class RentItem {
 					break; //Break the loop if an empty space is found
 				}
 				
-				System.out.println(addNewMember.newMemberArray[i][3] + "\t" + addNewMember.newMemberArray[i][0]);
+				System.out.println(addNewMember.newMemberArray[i][3] + "\t\t" + addNewMember.newMemberArray[i][0]);
 			}
 			
 			do
 			{
 				//Asks the user to select the member who wants to borrow something
 				System.out.println("Here is the list of members. Enter the member ID.");
+				action = in.next();
 				
 				for(int i = 0; i<addNewMember.newMemberArray.length; i++)
 				{
