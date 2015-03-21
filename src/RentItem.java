@@ -68,6 +68,7 @@ public class RentItem {
 		{
 			
 			boolean tester = true;
+			int count1 = 0;
 			
 			System.out.println("Member ID \t Name");
 			
@@ -76,83 +77,96 @@ public class RentItem {
 				if(!(addNewMember.newMemberArray[i][3] == null))
 				{
 					System.out.println(addNewMember.newMemberArray[i][3] + "\t\t" + addNewMember.newMemberArray[i][0]);
+					count1++;
 				}
 				
 			}
 			
-			do
+			if(count1 == 0)
 			{
-				//Asks the user to select the member who wants to borrow something
-				System.out.print("Here is the list of members. Enter the member ID. ");
-				action = in.next();
+				System.err.println("There are no members.");
+			}else
+			{
+				do
+				{	
+					//Asks the user to select the member who wants to borrow something
+					System.out.print("Here is the list of members. Enter the member ID. ");
+					action = in.next();
 				
-				for(int i = 0; i<addNewMember.newMemberArray.length; i++)
-				{
-					if(action.equals(addNewMember.newMemberArray[i][3]))
+					for(int i = 0; i<addNewMember.newMemberArray.length; i++)
 					{
-						tester = false;
-							
-						for (int x = 0; x<rental.length; x++)
+						if(action.equals(addNewMember.newMemberArray[i][3]))
 						{
-							if(rental[x][2] == null)
+							tester = false;
+							
+							for (int x = 0; x<rental.length; x++)
 							{
-								rental[x - correction][2] = action;
-								break;
+								if(rental[x][2] == null)
+								{
+									rental[x - correction][2] = action;
+									break;
+								}
 							}
 						}
-					}
-				}
-				if(tester)
-				{
+					}	
+					if(tester)
+					{
 					System.err.println("Member could not be found");
-				}
-			}while (tester);
+					}
+				}while (tester);
+			}
 		}
 
 		private void setItemNumberToRental(int correction) //The item number of the item being rented is selected
 		{
 			boolean tester = true;
+			int count = 0;
 			
 			//Displays a list of available items and asks to select the desired item
 			System.out.println("Item Number \t Title");
 			for (int i = 0; i < NewItem.itemArray.length; i++)
 			{
-				if(NewItem.itemArray[i][3] == null)
+				if(!(NewItem.itemArray[i][3] == null))
 				{
-					break; //Break the loop when an empty space is found
+					System.out.println(NewItem.itemArray[i][3] + "\t" + NewItem.itemArray[i][1]);
+					count++;
 				}
-				
-				System.out.println(NewItem.itemArray[i][3] + "\t" + NewItem.itemArray[i][1]);
 			}
 			
-			do
+			if(count == 0)
 			{
-				System.out.print("Here is a list of the available items. Enter the Item number. ");
-				itemNumber = in.next();
-				
-				for(int i = 0; i < NewItem.itemArray.length; i++) //Go through the item number in itemArray
+				System.err.println("There are no items available");
+			}else
+			{
+				do
 				{
-					if (itemNumber.equals(NewItem.itemArray[i][3])) //If the entered item number is equal to the value in the item array
-						{
-							tester = false; //When an item number corresponding to the entered value is found, the tester value changes to false
-						
-							for (int x = 0; x<rental.length; x++) //Go through the rental MDA until an empty spot is found
+					System.out.print("Here is a list of the available items. Enter the Item number. ");
+					itemNumber = in.next();
+				
+					for(int i = 0; i < NewItem.itemArray.length; i++) //Go through the item number in itemArray
+					{
+						if (itemNumber.equals(NewItem.itemArray[i][3])) //If the entered item number is equal to the value in the item array
 							{
-								if (rental[x][0] == null)
+								tester = false; //When an item number corresponding to the entered value is found, the tester value changes to false
+						
+								for (int x = 0; x<rental.length; x++) //Go through the rental MDA until an empty spot is found
 								{
-									rental[x - correction][0] = itemNumber;
-									break;
+									if (rental[x][0] == null)
+									{
+										rental[x - correction][0] = itemNumber;
+										break;
+									}
 								}
 							}
-						}
-				}
+					}
 				
-				if(tester)
-				{
+					if(tester)
+					{
 					System.err.println("Item number could not be found.");
-				}
+					}
 				
-			}while(tester); //If an item number could not be found, tester will remain to be true			
+				}while(tester); //If an item number could not be found, tester will remain to be true
+			}
 		}
 
 		private void setRentalType(int correction) //The rental type (weekly/ overnight) is selected
