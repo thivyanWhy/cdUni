@@ -88,7 +88,7 @@ public class RentItem {
 				
 			}
 			
-			if(count1 == 0)
+			if(count1 == 0) //This is done so that the interface does not get stuck if there are no members
 			{
 				System.err.println("There are no members.");
 				cont = false;
@@ -110,7 +110,7 @@ public class RentItem {
 							
 							renter = addNewMember.newMemberArray[i][0]; //renter variable gets assigned the value which is the name of the member who has rented it
 							
-							for (int x = 0; x<rental.length; x++)
+							for (int x = 0; x<rental.length; x++) //Provides 
 							{
 								if(rental[x][2] == null)
 								{

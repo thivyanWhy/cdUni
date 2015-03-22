@@ -31,7 +31,6 @@ public class OverdueItems {
 				if(NewItem.itemArray[x][3] != null && NewItem.itemArray[x][3].equals(itemNumber))
 				{
 					itemName = NewItem.itemArray[x][1];
-					break;
 				}
 				
 				//Finding name of renter and telephone number
@@ -39,9 +38,9 @@ public class OverdueItems {
 				{
 					renterName = addNewMember.newMemberArray[x][0];
 					telNO = addNewMember.newMemberArray[x][2];
-					break;
 				}
 				
+				break;
 			}
 			
 			if(RentItem.rental[i][1] != null && RentItem.rental[i][1].equals("Weekly") && daysBorrowedINT > 7) //Show if the list of rented items is of weekly type
@@ -51,7 +50,7 @@ public class OverdueItems {
 			
 			if(RentItem.rental[i][1] != null && RentItem.rental[i][1].equals("Overnight") && daysBorrowedINT > 1) //Show if the list of rented items is of overnight type
 			{
-				System.out.println(RentItem.rental[i][0] + "\t\t\t" + RentItem.rental[i][4] + "\t\t\t" + RentItem.rental[i][2]);
+				System.out.println(itemNumber + "\t\t\t" + itemName + "\t\t\t" + daysBorrowedINT + "\t\t\t" + renterID + "\t\t\t" + renterName + "\t\t\t" + telNO);
 			}
 		}
 		
