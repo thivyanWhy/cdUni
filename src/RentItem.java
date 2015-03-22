@@ -295,14 +295,66 @@ public class RentItem {
 		}
 
 		
-		public int setTimeBorrowed() //Calculates the amount of time taken since the item has been borrowed
+		public void setTimeBorrowed() //Calculates the amount of time taken since the item has been borrowed
 		{
-			System.out.print("Enter today's date (DD MM YYYY) ");
-			String rentalDate = in2.nextLine();
+			boolean tester = true;
+			boolean tester2 = true;
+			boolean mainTester = true;
 			
-			int borrowedDay = Integer.parseInt(rentalDate.substring(0, 1));
-			int borrowedMonth = Integer.parseInt(rentalDate.substring(3, 4));
-			int borrowedYear = Integer.parseInt(rentalDate.substring(6, 9));
+			int day = 0, month = 0, year = 0;
+			int borrowedDay = 0, borrowedMonth = 0, borrowedYear = 0;
+			
+			do //Entering today's date
+			{
+				System.out.print("Enter today's date (DD MM YYYY) ");
+				String rentalDate = in2.nextLine() + " ";
+				
+				try
+				{
+				day = Integer.parseInt(rentalDate.substring(0, 2));
+				month = Integer.parseInt(rentalDate.substring(4, 5));
+				year = Integer.parseInt(rentalDate.substring(6, 10));
+				
+				tester = false;
+				}catch(Exception e)
+				{
+					System.err.println("Invalid input");
+				}
+			}while(tester);
+			
+			
+			do //Entering borrowed date
+			{
+				System.out.print("Enter today's date (DD MM YYYY) ");
+				String rentalDate = in2.nextLine() + " ";
+				
+				try
+				{
+				borrowedDay = Integer.parseInt(rentalDate.substring(0, 2));
+				borrowedMonth = Integer.parseInt(rentalDate.substring(4, 5));
+				borrowedYear = Integer.parseInt(rentalDate.substring(6, 10));
+				
+				tester2 = false;
+				}catch(Exception e)
+				{
+					System.err.println("Invalid input");
+				}
+			}while (tester2);
+			
+			//Calculating the total number of days rented
+			int todayInDays = (day) + (month*30) + (year*365);
+			int borrowedDaysInDays = (borrowedDay) + (borrowedMonth*30) + (borrowedYear*365);
+			int daysRented = todayInDays - borrowedDaysInDays;
+			
+			String daysRentedS = Integer.toString(daysRented);
+			
+			for (int i = 0; i<rental.length; i++)
+			{
+				if(rental[i][4] == null)
+				{
+					rental[i][4] = daysRentedS;
+				}
+			}
 		}
 /*CORRECTION ARGUMENT EXPLAINED
  * In the addNewItemActions() method in the CD_Universe class, the given value for correction is 0

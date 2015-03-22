@@ -1,6 +1,8 @@
 import java.util.Scanner;//hello
 
 public class OverdueItems {
+	
+	private static Scanner in = new Scanner(System.in);
 
 	public void displayingOverdueItems()
 	{
@@ -29,6 +31,8 @@ public class OverdueItems {
 		}
 		
 		System.out.println();//Add space
+		System.out.println("Press any key and hit enter to go back");
+		String next = in.next();
 	}
 
 	//Discuss additional functionalitites to this
