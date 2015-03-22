@@ -1,9 +1,8 @@
 import java.util.Scanner;//hellol
 
 public class CD_Universe 
-{
-	private static Scanner input = new Scanner (System.in);
-	private static Scanner input2 = new Scanner (System.in);
+{ 
+	private static Scanner input2 = new Scanner (System.in); 
 	
 	private static String action;
 	private static int actionINT = 9;
@@ -23,13 +22,14 @@ public class CD_Universe
 			System.out.println("\t 3 - Rent Item");
 			System.out.println("\t 4 - Overdue Items");
 			System.out.println("\t 5 - Add New Member");
+			System.out.println("\t 10 - Exit");
 			
 		boolean tester = true;
 		
 		do
 		{	
 			System.out.print("Enter the required number to perform an action: "); // This is going to prompt the user to enter a number
-			action = input.next();
+			action = input2.next();
 			System.out.println(); //Add line
 			
 			try //Showing an error is the user enters a non numeric value
@@ -38,9 +38,10 @@ public class CD_Universe
 				tester = false;
 				
 				//Giving an error to the user if he enters an invalid input
-				if (!(actionINT == 0 || actionINT == 1 || actionINT == 2 || actionINT == 3 || actionINT == 4 || actionINT == 5))
+				if (!(actionINT == 0 || actionINT == 1 || actionINT == 2 || actionINT == 3 || actionINT == 4 || actionINT == 5 || actionINT == 10))
 				{
 					System.err.println("Invalid input");
+					tester = true;
 				}else
 				{
 					tester = false;
@@ -48,6 +49,7 @@ public class CD_Universe
 			}catch (Exception e)
 			{
 				System.err.println("Invalid input");
+				tester = true;
 			}
 		}while(tester);
 		System.out.println(newWindow);
@@ -241,6 +243,26 @@ public class CD_Universe
 		System.out.println(newWindow);
 	}
 	
+	public static void exitActions() //Set of actions when exiting the program is needed
+	{
+		do
+		{
+			System.out.println("Are you sure you want to exit the program? Doing so will lose all the stored data.");
+			System.out.println("Y - Yes");
+			System.out.println("N- No");
+			
+			action = input2.next();
+			
+			if(action.equalsIgnoreCase("Y"))
+			{
+				System.exit(0);
+			}else if(action.equalsIgnoreCase("N"))
+			{
+				System.out.println("Exit terminated.");
+			}
+		}while(!(action.equalsIgnoreCase("Y") || action.equalsIgnoreCase("N")));
+	}
+	
 	public static void main(String[] args) 
 	{
 		do
@@ -255,6 +277,7 @@ public class CD_Universe
 				case 3: rentItemActions();	break; //When renting an item
 				case 4: overdueItemsActions(); break; //When looking for a list of overdue items
 				case 5: addNewMemberActions();	break; //When the user wants to add a new member
+				case 10: exitActions(); break; //Terminating the program
 			}
 		}while(true); //Creates an infinite loop such that the program displays the primary screen every time an action is completed
 	}
