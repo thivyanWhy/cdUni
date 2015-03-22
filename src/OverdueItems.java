@@ -21,12 +21,12 @@ public class OverdueItems {
 			
 			if(RentItem.rental[i][1] != null && RentItem.rental[i][1].equals("Weekly") && daysBorrowedINT > 7) //Show if the list of rented items is of weekly type
 			{
-				System.out.println(RentItem.rental[i][0] + "\t\t" + RentItem.rental[i][4] + "\t\t" + RentItem.rental[i][2]);
+				System.out.println(RentItem.rental[i][0] + "\t\t\t" + RentItem.rental[i][4] + "\t\t\t" + RentItem.rental[i][2]);
 			}
 			
 			if(RentItem.rental[i][1] != null && RentItem.rental[i][1].equals("Overnight") && daysBorrowedINT > 1) //Show if the list of rented items is of overnight type
 			{
-				System.out.println(RentItem.rental[i][0] + "\t" + RentItem.rental[i][4] + "\t" + RentItem.rental[i][2]);
+				System.out.println(RentItem.rental[i][0] + "\t\t\t" + RentItem.rental[i][4] + "\t\t\t" + RentItem.rental[i][2]);
 			}
 		}
 		

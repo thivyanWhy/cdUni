@@ -108,6 +108,8 @@ public class RentItem {
 						{
 							tester = false;
 							
+							renter = addNewMember.newMemberArray[i][0]; //renter variable gets assigned the value which is the name of the member who has rented it
+							
 							for (int x = 0; x<rental.length; x++)
 							{
 								if(rental[x][2] == null)
@@ -199,13 +201,15 @@ public class RentItem {
 						
 						if(action.equals("0")) //If the user selects Weekly
 						{
-							rental[i - correction][1] = "Weekly";
+							rentalType = "Weekly";
+							rental[i - correction][1] = rentalType;
 							break;
 						}
 						
 						if(action.equals("1"))//If the user selects Overnight
 						{
-							rental[i - correction][1] = "Overnight";
+							rentalType = "Overnight";
+							rental[i - correction][1] = rentalType;
 							break;
 						}
 					}
@@ -322,24 +326,10 @@ public class RentItem {
 				}
 			}while(tester);
 			
-			
-			do //Entering borrowed date
-			{
-				System.out.print("Enter today's date (DD MM YYYY) ");
-				String rentalDate = in2.nextLine() + " ";
-				
-				try
-				{
-				borrowedDay = Integer.parseInt(rentalDate.substring(0, 2));
-				borrowedMonth = Integer.parseInt(rentalDate.substring(4, 5));
-				borrowedYear = Integer.parseInt(rentalDate.substring(6, 10));
-				
-				tester2 = false;
-				}catch(Exception e)
-				{
-					System.err.println("Invalid input");
-				}
-			}while (tester2);
+			//Getting the values of the borrowed date. No exception handling needed as it has been done when the rented date is entered
+			borrowedDay = Integer.parseInt(rentalDate.substring(0, 2));
+			borrowedMonth = Integer.parseInt(rentalDate.substring(4, 5));
+			borrowedYear = Integer.parseInt(rentalDate.substring(6, 10));
 			
 			//Calculating the total number of days rented
 			int todayInDays = (day) + (month*30) + (year*365);
