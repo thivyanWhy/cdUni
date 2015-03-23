@@ -28,7 +28,7 @@ public class DeleteItem {
 			for (int i = 0; i<NewItem.itemArray.length; i++)
 			{
 				
-				if(NewItem.itemArray[i][3] == null)
+				if(NewItem.itemArray[i][3] == null)  //
 				{
 					break;
 				}

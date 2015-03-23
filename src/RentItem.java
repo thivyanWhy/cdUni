@@ -139,7 +139,7 @@ public class RentItem {
 			{
 				if(!(NewItem.itemArray[i][3] == null))
 				{
-					System.out.println(NewItem.itemArray[i][3] + "\t" + NewItem.itemArray[i][1]);
+					System.out.println(NewItem.itemArray[i][3] + "\t\t" + NewItem.itemArray[i][1]);
 					count++;
 				}
 			}
